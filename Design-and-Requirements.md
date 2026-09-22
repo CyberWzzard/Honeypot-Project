@@ -4,25 +4,30 @@
  
 - Cowrie honeypot runs on a VPS, in Docker, with all outbound traffic blocked except the connection to the backend.
 - MongoDB Atlas (free tier) stores all data.
-- FastAPI backend (Snapdeploy) handles ingestion, login, and dashboard queries.
-- React dashboard (Firebase Hosting) is the only thing that talks to the backend API.
-- Flow: Cowrie → MongoDB → FastAPI → Dashboard.
+- FastAPI backend (Snapdeploy,Render, or FastAPI Cloud) handles log ingestion from cowrie, and front end login, and dashboard queries.
+- React dashboard (Firebase Hosting) - serves as Dashboard for analyst to monitor honeypot stats.
+- Flow: Cowrie Honeypot → FastAPI → MongoDB → FastAPI → Dashboard.
 
 ## Requirements
  
 **Honeypot**
+- Cowrie honeypot runs in docker container for isolation.
 - Believable fake filesystem (fake credentials, configs, users, notes).
-- Some logins succeed so real activity gets captured, not just failed attempts.
+- Log failed and successful logins along with all commands on emulated linux shell (Cowrie handles this)
 - SFTP/SCP disabled — no real file transfer in or out for security.
 - No default/stock Cowrie values left in place (hostname, usernames, banner).
+- Forwards logs to FastAPI
+  
 **Database**
 - Collections: sessions, auth_attempts, commands, ip_intel, daily_stats, admin.
-- Indexed on IP and timestamp for fast lookups.
+- Indexed on IP and sessions for fast lookups.
+
 **Backend**
 - Single admin account only, no public signup.
 - Log ingestion endpoint secured separately from admin login.
+  
 **Dashboard**
 - Login page.
-- Overview stats (counts, success rate, trend chart).
-- Sessions list with drill-down into commands.
-- Per-IP attacker view.
+- Main Overview stats (unique IP count, session count, command count, login success rate, unique usernames and passwords guessed).
+- Sessions list with drill-down into commands with timestamps.
+- Per-IP attacker view (sessions involved, commands typed).
