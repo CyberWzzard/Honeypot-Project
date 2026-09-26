@@ -9,15 +9,15 @@
 
 ## Pull Requests Merged During Sprint
 
-
-
 ### PR #1
 
 - **Title:** test pull request
 - **Link:** https://github.com/CyberWzzard/Honeypot-Project/pull/1
-- **Author:** Azarel
-- **Reviewer(s):** 
+- **Author:** Azarel (Oz-ee)
+- **Reviewer(s):** Andrew (CyberWzzard)
 - **Merge Date:** 2026-09-12
+
+### PR #2
 
 - **Title:** Added branch verification pdf
 - **Link:** https://github.com/CyberWzzard/Honeypot-Project/pull/2
@@ -25,10 +25,11 @@
 - **Reviewer(s):** Azarel (Oz-ee)
 - **Merge Date:** 2026-09-12
 
+---
 
 ## Commit Activity
 
-- **Total Number of Commits:**
+- **Total Number of Commits:** 2
 - **Date Range:**
   - First Commit: 2026-09-12
   - Last Commit: 2026-09-21
