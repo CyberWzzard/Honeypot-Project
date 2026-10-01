@@ -1,0 +1,4 @@
+Copy the contents of the honeyfs/ folder from the fake-files zip built
+earlier in this project into this directory, preserving the same paths
+(root/, home/dave/, etc/, opt/, var/). The docker-compose.yml in this
+project already references those exact paths.
